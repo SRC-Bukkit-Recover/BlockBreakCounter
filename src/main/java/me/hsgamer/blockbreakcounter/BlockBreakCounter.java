@@ -1,6 +1,8 @@
 package me.hsgamer.blockbreakcounter;
 
 import org.bstats.bukkit.Metrics;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,6 +32,12 @@ public final class BlockBreakCounter extends JavaPlugin {
         }
         List<String> blocks = getConfig().getStringList("blocks");
         for (String i : blocks) {
+            try {
+                Material.valueOf(i);
+            } catch (IllegalArgumentException e) {
+                getServer().getConsoleSender().sendMessage(ChatColor.RED + i + " is invalid. Ignored");
+                continue;
+            }
             DataManager.addDataFile(i);
         }
 
