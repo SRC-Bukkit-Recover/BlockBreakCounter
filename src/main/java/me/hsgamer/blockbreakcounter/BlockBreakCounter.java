@@ -1,5 +1,6 @@
 package me.hsgamer.blockbreakcounter;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,6 +19,8 @@ public final class BlockBreakCounter extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        Metrics metrics = new Metrics(this);
+
         this.getConfig().options().copyHeader(true);
         saveDefaultConfig();
 
