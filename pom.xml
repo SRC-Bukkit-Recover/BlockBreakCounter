@@ -112,5 +112,12 @@
             <version>1.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>me.robin.leaderheads</groupId>
+            <artifactId>leaderheads-api</artifactId>
+            <version>3.1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/LeaderHeadsAPI.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>
