@@ -10,7 +10,7 @@ public class LeaderHeadsHook extends OnlineDataCollector {
     private String material;
 
     LeaderHeadsHook(String material) {
-        super(BlockBreakCounter.getPlugin().getDescription().getName().toLowerCase() + "-" + material.toLowerCase(), BlockBreakCounter.getPlugin().getDescription().getName(), BoardType.DEFAULT, "&a&l" + material.toLowerCase() + " broken", BlockBreakCounter.getPlugin().getDescription().getName().toLowerCase() + "-" + material.toLowerCase(), Arrays.asList(null, null, "&e{amount} blocks", null));
+        super( "bbc-" + material.toLowerCase(), BlockBreakCounter.getPlugin().getDescription().getName(), BoardType.DEFAULT, "&a&l" + material.toLowerCase() + " broken", "bbc-" + material.toLowerCase(), Arrays.asList(null, null, "&e{amount} blocks", null));
         this.material = material;
     }
 
