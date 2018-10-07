@@ -43,13 +43,14 @@ public final class BlockBreakCounter extends JavaPlugin {
             new PAPIHook().register();
         }
 
-
+        this.getCommand("blockbreakcounter").setExecutor(new Commands());
         getServer().getPluginManager().registerEvents(new Listeners(), this);
     }
 
     @Override
     public void onDisable() {
         plugin = null;
+        leaderHeadsHookHashMap.clear();
         DataManager.clearDataFiles();
         HandlerList.unregisterAll(this);
     }

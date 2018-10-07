@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="BlockBreakCounter:jar">
+  <artifact type="jar" build-on-make="true" name="BlockBreakCounter:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/BlockBreakCounter_jar</output-path>
     <root id="archive" name="BlockBreakCounter.jar">
       <element id="module-output" name="BlockBreakCounter" />

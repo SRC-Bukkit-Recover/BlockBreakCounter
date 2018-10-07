@@ -4,3 +4,8 @@ main: me.hsgamer.blockbreakcounter.BlockBreakCounter
 softdepend: [LeaderHeads, PlaceholderAPI]
 authors: [HSGamer]
 description: Count block broken
+commands:
+  blockbreakcounter:
+    description: BlockBreakCounter commands
+    usage: /blockbreakcounter
+    aliases: [bbc, breakcounter]
