@@ -4,9 +4,12 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.List;
 
 public final class BlockBreakCounter extends JavaPlugin {
     private static BlockBreakCounter plugin;
+    private static HashMap<String, LeaderHeadsHook> leaderHeadsHookHashMap = new HashMap<>();
 
     public static BlockBreakCounter getPlugin() {
         return plugin;
@@ -22,12 +25,21 @@ public final class BlockBreakCounter extends JavaPlugin {
         if (!datadir.exists()) {
             datadir.mkdirs();
         }
-        for (String i : getConfig().getStringList("blocks")) {
+        List<String> blocks = getConfig().getStringList("blocks");
+        for (String i : blocks) {
             DataManager.addDataFile(i);
         }
+
+        if (getServer().getPluginManager().isPluginEnabled("LeaderHeads")) {
+            for (String i : blocks) {
+                leaderHeadsHookHashMap.put(i, new LeaderHeadsHook(i));
+            }
+        }
+
         if (getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new PAPIHook().register();
         }
+
 
         getServer().getPluginManager().registerEvents(new Listeners(), this);
     }
