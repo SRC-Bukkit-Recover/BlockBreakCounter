@@ -1,0 +1,6 @@
+name: BlockBreakCounter
+version: ${project.version}
+main: me.hsgamer.blockbreakcounter.BlockBreakCounter
+softdepend: [LeaderHeads, PlaceholderAPI]
+authors: [HSGamer]
+description: Count block broken

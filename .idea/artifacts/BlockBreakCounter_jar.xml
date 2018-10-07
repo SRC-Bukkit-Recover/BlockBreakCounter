@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BlockBreakCounter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BlockBreakCounter_jar</output-path>
+    <root id="archive" name="BlockBreakCounter.jar">
+      <element id="module-output" name="BlockBreakCounter" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
+    </root>
+  </artifact>
+</component>
