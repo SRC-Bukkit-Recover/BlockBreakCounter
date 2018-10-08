@@ -1,5 +1,10 @@
 package me.hsgamer.blockbreakcounter;
 
+import me.hsgamer.blockbreakcounter.commands.Commands;
+import me.hsgamer.blockbreakcounter.files.DataManager;
+import me.hsgamer.blockbreakcounter.hooks.LeaderHeadsHook;
+import me.hsgamer.blockbreakcounter.hooks.PAPIHook;
+import me.hsgamer.blockbreakcounter.listeners.BlockBreakListener;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -52,7 +57,7 @@ public final class BlockBreakCounter extends JavaPlugin {
         }
 
         this.getCommand("blockbreakcounter").setExecutor(new Commands());
-        getServer().getPluginManager().registerEvents(new Listeners(), this);
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
     }
 
     @Override

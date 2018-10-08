@@ -1,4 +1,4 @@
-package me.hsgamer.blockbreakcounter;
+package me.hsgamer.blockbreakcounter.files;
 
 import java.util.ArrayList;
 import java.util.HashMap;

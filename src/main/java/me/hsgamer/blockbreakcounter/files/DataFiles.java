@@ -1,5 +1,6 @@
-package me.hsgamer.blockbreakcounter;
+package me.hsgamer.blockbreakcounter.files;
 
+import me.hsgamer.blockbreakcounter.BlockBreakCounter;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

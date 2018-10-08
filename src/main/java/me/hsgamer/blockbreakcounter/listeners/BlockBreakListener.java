@@ -1,5 +1,7 @@
-package me.hsgamer.blockbreakcounter;
+package me.hsgamer.blockbreakcounter.listeners;
 
+import me.hsgamer.blockbreakcounter.files.DataFiles;
+import me.hsgamer.blockbreakcounter.files.DataManager;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
@@ -7,7 +9,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class Listeners implements Listener {
+public class BlockBreakListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onBreakBlock(BlockBreakEvent e) {

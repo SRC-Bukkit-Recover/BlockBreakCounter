@@ -1,6 +1,8 @@
-package me.hsgamer.blockbreakcounter;
+package me.hsgamer.blockbreakcounter.hooks;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import me.hsgamer.blockbreakcounter.BlockBreakCounter;
+import me.hsgamer.blockbreakcounter.files.DataManager;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -21,7 +23,9 @@ public class PAPIHook extends PlaceholderExpansion {
     }
 
     public String onPlaceholderRequest(Player p, String params) {
-        if(p == null){ return ""; }
+        if (p == null) {
+            return "";
+        }
 
         // %PLUGINNAME_count_MATERIAL%
         if (params.startsWith("count_")) {
