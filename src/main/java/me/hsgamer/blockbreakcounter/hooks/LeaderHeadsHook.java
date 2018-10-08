@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class LeaderHeadsHook extends OnlineDataCollector {
     private String material;
 
-    LeaderHeadsHook(String material) {
+    public LeaderHeadsHook(String material) {
         super("bbc-" + material.toLowerCase(), BlockBreakCounter.getPlugin().getDescription().getName(), BoardType.DEFAULT, "&a&l" + material.toLowerCase() + " broken", "bbc-" + material.toLowerCase(), Arrays.asList(null, null, "&e{amount} blocks", null));
         this.material = material;
     }
