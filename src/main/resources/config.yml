@@ -6,3 +6,6 @@ blocks:
   - COAL_ORE
   - EMERALD_ORE
   - LAPIS_ORE
+listeners:
+  block-break: true
+  block-explode: true

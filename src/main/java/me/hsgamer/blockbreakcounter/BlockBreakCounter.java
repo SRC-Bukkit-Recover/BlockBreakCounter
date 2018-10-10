@@ -5,7 +5,8 @@ import me.hsgamer.blockbreakcounter.files.DataManager;
 import me.hsgamer.blockbreakcounter.hooks.LeaderHeadsHook;
 import me.hsgamer.blockbreakcounter.hooks.PAPIHook;
 import me.hsgamer.blockbreakcounter.listeners.BlockBreakListener;
-import org.bstats.bukkit.Metrics;
+import me.hsgamer.blockbreakcounter.listeners.BlockExplodeListener;
+import org.bstats.bukkit.MetricsLite;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.HandlerList;
@@ -26,7 +27,7 @@ public final class BlockBreakCounter extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        Metrics metrics = new Metrics(this);
+        new MetricsLite(this);
 
         this.getConfig().options().copyHeader(true);
         saveDefaultConfig();
@@ -57,7 +58,15 @@ public final class BlockBreakCounter extends JavaPlugin {
         }
 
         this.getCommand("blockbreakcounter").setExecutor(new Commands());
-        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+
+        if (getConfig().getBoolean("listeners.block-break")) {
+            getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+            getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Registered BlockBreakListener");
+        }
+        if (getConfig().getBoolean("listeners.block-explode")) {
+            getServer().getPluginManager().registerEvents(new BlockExplodeListener(), this);
+            getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Registered BlockExplodeListener");
+        }
     }
 
     @Override
