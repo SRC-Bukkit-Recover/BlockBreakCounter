@@ -79,7 +79,7 @@ public final class BlockBreakCounter extends JavaPlugin {
     }
 
     public static void reloadPlugin(CommandSender sender) {
-        getPlugin().saveConfig();
+        getPlugin().reloadConfig();
         DataManager.clearDataFiles();
         HandlerList.unregisterAll(getPlugin());
         leaderHeadsHookHashMap.clear();
