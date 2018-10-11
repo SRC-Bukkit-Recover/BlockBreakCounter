@@ -9,3 +9,25 @@ commands:
     description: BlockBreakCounter commands
     usage: /blockbreakcounter
     aliases: [bbc, breakcounter]
+permissions:
+  blockbreakcounter.help:
+    description: Help command
+    default: true
+  blockbreakcounter.count:
+    description: Count command
+    default: op
+  blockbreakcounter.add:
+    description: Add command
+    default: op
+  blockbreakcounter.set:
+    description: Set command
+    default: op
+  blockbreakcounter.clear:
+    description: Clear command
+    default: op
+  blockbreakcounter.clearall:
+    description: Clearall command
+    default: op
+  blockbreakcounter.reload:
+    description: Reload command
+    default: op

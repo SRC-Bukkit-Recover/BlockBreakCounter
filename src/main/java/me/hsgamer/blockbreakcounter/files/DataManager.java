@@ -43,4 +43,31 @@ public class DataManager {
         }
         datafile.saveConfig();
     }
+
+    public static void set(String filename, String playername, int number) {
+        DataFiles datafile = getDataFile(filename);
+        FileConfiguration data = datafile.getConfig();
+        data.set(playername, number);
+        datafile.saveConfig();
+    }
+
+    public static void clearData(String filename, String playername) {
+        DataFiles datafile = getDataFile(filename);
+        FileConfiguration data = datafile.getConfig();
+        if (data.contains(playername)) {
+            data.set(playername, 0);
+        }
+        datafile.saveConfig();
+    }
+
+    public static void clearAll(String filename) {
+        DataFiles datafile = getDataFile(filename);
+        FileConfiguration data = datafile.getConfig();
+        List<String> players = data.getStringList("");
+        if (players == null) return;
+        for (String player : players) {
+            data.set(player, 0);
+        }
+        datafile.saveConfig();
+    }
 }

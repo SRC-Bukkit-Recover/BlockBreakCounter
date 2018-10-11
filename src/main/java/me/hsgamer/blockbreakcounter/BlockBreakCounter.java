@@ -9,6 +9,7 @@ import me.hsgamer.blockbreakcounter.listeners.BlockExplodeListener;
 import org.bstats.bukkit.MetricsLite;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -75,5 +76,36 @@ public final class BlockBreakCounter extends JavaPlugin {
         leaderHeadsHookHashMap.clear();
         DataManager.clearDataFiles();
         HandlerList.unregisterAll(this);
+    }
+
+    public static void reloadPlugin(CommandSender sender) {
+        DataManager.clearDataFiles();
+        HandlerList.unregisterAll(getPlugin());
+        leaderHeadsHookHashMap.clear();
+        List<String> blocks = getPlugin().getConfig().getStringList("blocks");
+        for (String i : blocks) {
+            try {
+                Material.valueOf(i);
+            } catch (IllegalArgumentException e) {
+                sender.sendMessage(ChatColor.RED + i + " is invalid. Ignored");
+                continue;
+            }
+            DataManager.addDataFile(i);
+        }
+
+        if (getPlugin().getServer().getPluginManager().isPluginEnabled("LeaderHeads")) {
+            for (String i : blocks) {
+                leaderHeadsHookHashMap.put(i, new LeaderHeadsHook(i));
+            }
+        }
+
+        if (getPlugin().getConfig().getBoolean("listeners.block-break")) {
+            getPlugin().getServer().getPluginManager().registerEvents(new BlockBreakListener(), getPlugin());
+            sender.sendMessage(ChatColor.GREEN + "Registered BlockBreakListener");
+        }
+        if (getPlugin().getConfig().getBoolean("listeners.block-explode")) {
+            getPlugin().getServer().getPluginManager().registerEvents(new BlockExplodeListener(), getPlugin());
+            sender.sendMessage(ChatColor.GREEN + "Registered BlockExplodeListener");
+        }
     }
 }
