@@ -70,7 +70,7 @@ public class Commands implements CommandExecutor {
                         try {
                             value = Integer.valueOf(args[3]);
                         }
-                        catch (IllegalArgumentException e) {
+                        catch (NumberFormatException e) {
                             sender.sendMessage(ChatColor.RED + args[3] + " is not a number");
                             return true;
                         }
