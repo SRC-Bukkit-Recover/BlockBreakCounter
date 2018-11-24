@@ -1,14 +1,11 @@
 package me.hsgamer.blockbreakcounter.commands;
 
-import java.util.List;
 import me.hsgamer.blockbreakcounter.BlockBreakCounter;
 import me.hsgamer.blockbreakcounter.files.DataManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.PluginDescriptionFile;
 
 public class Commands implements CommandExecutor {
     private BlockBreakCounter plugin = BlockBreakCounter.getPlugin();
