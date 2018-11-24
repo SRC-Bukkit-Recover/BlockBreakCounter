@@ -10,8 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 
-public class Commands
-implements CommandExecutor {
+public class Commands implements CommandExecutor {
     private BlockBreakCounter plugin = BlockBreakCounter.getPlugin();
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
