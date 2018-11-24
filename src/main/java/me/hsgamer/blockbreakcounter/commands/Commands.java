@@ -98,14 +98,14 @@ public class Commands implements CommandExecutor {
                     sender.sendMessage(ChatColor.RED + "You don't have permissions to do that");
                 }
             } else if (args[0].equalsIgnoreCase("clearall")) {
-                if (sender.hasPermission("blockbreakcounter.add")) {
+                if (sender.hasPermission("blockbreakcounter.clearall")) {
                     if (args.length != 2) {
                         sender.sendMessage(ChatColor.RED + "Usage: /" + label + " clearall <material>");
                     } else if (DataManager.isAvailable(args[1])) {
                         DataManager.clearAll(args[1]);
                         sender.sendMessage(ChatColor.GREEN + "Successfully Cleared");
                     } else {
-                        sender.sendMessage(ChatColor.RED + args[2] + " is invalid or not added on the config");
+                        sender.sendMessage(ChatColor.RED + args[1] + " is invalid or not added on the config");
                     }
                 } else {
                     sender.sendMessage(ChatColor.RED + "You don't have permissions to do that");
